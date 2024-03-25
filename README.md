@@ -19,6 +19,37 @@ Developing and Testing an Asynchronous API with FastAPI and Pytest
 6. Parameterize test functions and mock functionality in tests with pytest
 7. Document a RESTful API with Swagger/OpenAPI
 
-```bash
-cd ./
+## Project structure
+
+```
+.
+├── docker-compose.yml
+├── LICENSE
+├── README.md
+└── src
+    ├── app
+    │   ├── core
+    │   │   ├── create_app.py
+    │   │   ├── docs
+    │   │   │   ├── __init__.py
+    │   │   │   ├── __pycache__
+    │   │   │   │   └── __init__.cpython-310.pyc
+    │   │   │   └── templates
+    │   │   │       └── docs.html
+    │   │   ├── __init__.py
+    │   │   ├── __pycache__
+    │   │   │   ├── create_app.cpython-310.pyc
+    │   │   │   ├── __init__.cpython-310.pyc
+    │   │   │   └── settings.cpython-310.pyc
+    │   │   └── settings.py
+    │   ├── __init__.py
+    │   ├── main.py
+    │   ├── posts
+    │   └── __pycache__
+    │       └── main.cpython-310.pyc
+    ├── requirements.txt
+    ├── tests
+    └── venv
+        └── include
+
 ```
