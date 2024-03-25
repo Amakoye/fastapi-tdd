@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- Important: must specify -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- Important: rapi-doc uses utf8 characters -->
+    <script
+      type="module"
+      src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"
+    ></script>
+  </head>
+  <body>
+    <rapi-doc
+      spec-url="{{ schema_url }}"
+      theme="dark"
+      allow-authentication="true"
+      allow-search="true"
+      allow-try="true"
+      schema-style="table"
+      show-method-in-nav-bar="as-colored-text"
+      allow-server-selection="false"
+      show-header="true"
+      info-description-headings-in-navbar="true"
+      persist-auth="true"
+      schema-description-expanded="true"
+    >
+    </rapi-doc>
+  </body>
+</html>
