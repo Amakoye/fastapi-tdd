@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+ web:
+  build: ./src
+  command: python ./app/main.py
+  volumes:
+      - ./src/:/usr/src/app/
+  ports:
+      - 8002:8000
