@@ -3,7 +3,7 @@ from fastapi.routing import APIRouter
 from fastapi.responses import HTMLResponse
 from fastapi import Request
 from fastapi.templating import Jinja2Templates
-from core import settings
+from app.core import settings
 
 docs_router = APIRouter(include_in_schema=False)
 directory = Path(__file__).joinpath("../templates").resolve()

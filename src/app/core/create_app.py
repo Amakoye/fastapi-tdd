@@ -2,8 +2,8 @@ import pathlib
 from typing import Tuple
 from fastapi import APIRouter, Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from core import settings
-from core.docs import docs_router
+from app.core import settings
+from app.core.docs import docs_router
 
 
 # from starlette.middleware.sessions import SessionMiddleware
