@@ -1,7 +1,9 @@
 import os
 from dotenv import load_dotenv
 from sqlalchemy import create_engine, MetaData
-from sqlalchemy.ext.declarative import declarative_base
+
+# from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import Session, sessionmaker
 from databases import Database
 
@@ -22,7 +24,7 @@ Base = declarative_base()
 # Dependency to get the database session
 def get_db_session() -> Session:  # type: ignore
     SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-    db_session = SessionLocal
+    db_session = SessionLocal()
     try:
         yield db_session
     finally:
