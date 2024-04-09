@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Path
 from typing import List
 from sqlalchemy.orm import Session
 from app.core.db import get_db_session
@@ -17,7 +17,7 @@ async def create_note(payload: NoteBaseSchema, db: Session = Depends(get_db_sess
 
 
 @notes_router.get("/{id}/", response_model=NoteSchema, status_code=200)
-async def read_note(id: int, db: Session = Depends(get_db_session)):
+async def read_note(id: int = Path(..., gt=0), db: Session = Depends(get_db_session)):
     note = await get(id=id, db=db)
     if not note:
         raise HTTPException(status_code=404, detail="Note not found")
@@ -32,9 +32,10 @@ async def read_all_notes(db: Session = Depends(get_db_session)):
 
 @notes_router.put("/{id}/", response_model=NoteSchema)
 async def update_note(
-    id: int, payload: NoteBaseSchema, db: Session = Depends(get_db_session)
+    payload: NoteBaseSchema,
+    id: int = Path(..., gt=0),
+    db: Session = Depends(get_db_session),
 ):
-    print("NOTE ID", id)
     note = await get(id=id, db=db)
 
     if not note:
@@ -46,7 +47,7 @@ async def update_note(
 
 
 @notes_router.delete("/{id}/", response_model=NoteSchema)
-async def delete_note(id: int, db: Session = Depends(get_db_session)):
+async def delete_note(id: int = Path(..., gt=0), db: Session = Depends(get_db_session)):
     note = await get(id=id, db=db)
 
     if not note:
